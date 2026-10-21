@@ -6,7 +6,7 @@ module ring_osc #(
     input  wire enable,
     output wire osc_out
 );
-    (* dont_touch = "true" *) wire [STAGES-1:0] chain;
+    (* keep = "true", dont_touch = "true" *) wire [STAGES-1:0] chain;
 
 `ifdef SIMULATION
     assign #SIM_DELAY chain[0] = ~(chain[STAGES-1] & enable);
